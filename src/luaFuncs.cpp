@@ -14,9 +14,14 @@
 #include "LuaContext.hpp"
 #include "load_textures.h"
 #include <filesystem>
+#include "sprites.h"
 std::unordered_map<std::string, SDL_Texture *> tex;
 
 
+void load_sprites(std::vector<sprite*> sprites)
+{
+
+}
 void new_load_luafiles(LuaContext *L)
 {
 	std::string path = "Packages";
@@ -53,7 +58,7 @@ void load_lua_textures(LuaContext *L) {
     //std::cout << lua.readVariable<int>("x") << std::endl;
 }
 
-void load_lua_files(std::string &tileFile, LuaContext *L) {
+/*void load_lua_files(std::string &tileFile, LuaContext *L) {
     std::ifstream file;
     file.open("Scripts/loadLua.blf");
     std::string line;
@@ -116,7 +121,7 @@ void load_lua_files(std::string &tileFile, LuaContext *L) {
         }
     }
 
-}
+}*/
 
 void load_tiles(std::string tileFile) {
     std::ifstream file;

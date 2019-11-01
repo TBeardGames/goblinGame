@@ -82,7 +82,21 @@ game::handle_game(const Uint8 *key, camera *maincam, tilemap *mp, player *plr, L
             renderToWorld(mp->tiles[x_pos][y_pos]->pos, 1, 1, maincam, tex[mp->tiles[x_pos][y_pos]->type->id]);
         }
     }
-    plr->handle(key, mp, L, maincam);
+	SDL_Event e;
+	while (SDL_PollEvent(&e) != 0)
+	{
+		if (e.type == SDL_MOUSEBUTTONDOWN) {
+			int mousex, mousey;
+			int screenw, screenh;
+			SDL_GetMouseState(&mousex, &mousey);
+			float nx = mousex;
+			float ny = mousey;
+			SDL_Point p = { mousex, mousey };
+			convertToWorld(nx, ny, maincam);
+			std::cout << nx << " , " << ny << std::endl;
+		}
+	}
+   // plr->handle(key, mp, L, maincam);
     maincam->camPos.x = plr->pos->x - 5;
     maincam->camPos.y = plr->pos->y - 5;
     renderToWorld(plr->pos, plr->w, plr->h, maincam, tex["player"]);

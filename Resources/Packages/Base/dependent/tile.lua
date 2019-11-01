@@ -63,5 +63,8 @@ function tile:super()
     return parent
 end
 
+function tile:aSuper()
+	return tile.id
+end
 tiles:register(tile) --You need to define something, then register it to tiles. 
 --Reference as tiles["tile"]

@@ -64,7 +64,7 @@ int main(int argc, char **argv) //The main function.
     int frameps = 0;
     tilemap j = tilemap("MAP.vmf");
 
-    camera maincam = camera(Vec2(0, 0), 10, 10, &res);
+    camera maincam = camera(Vec2(0, 0), 3, 3, &res);
     game maingame = game();
     mapMakeHandler mpMkHandle = mapMakeHandler(&lua);
     init_player();
